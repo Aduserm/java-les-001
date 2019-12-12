@@ -1,5 +1,6 @@
 package com.zeroten.javales001;
 
-public class DemoTest {
+import org.testng.annotations.Test;
 
+public class DemoTest {
 }

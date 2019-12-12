@@ -4,6 +4,8 @@
 
 本次课程对于前端部分，我会选择一个小程序前端框架和一个Vue框架来直接使用。
 
+课程直播地址：<https://www.douyu.com/topjavacoder>
+
 ## 课程相关项目地址
 
 - <https://github.com/cnJun/java-les-maven-example>
