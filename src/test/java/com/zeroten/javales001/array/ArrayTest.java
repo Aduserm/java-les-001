@@ -45,4 +45,30 @@ public class ArrayTest {
         Integer[] arr9 = {2, 9, 7, null, 0, 5};
         System.out.println("arr9 = " + Arrays.toString(arr9));
     }
+
+    @Test
+    public void testBianLi() {
+        // 示例：分别使用上述三种方式遍历数组 Integer[] arr = {1, 2, 3, 4, 5};
+        Integer[] arr = {1, 2, 3, 4, 5};
+
+        for (int index = 0; index < arr.length; index++) {
+            // System.out.println("下标：" + index + ", 存放的值是：" + arr[index]);
+            System.out.println(String.format("下标：%d, 存放的值是：%d", index, arr[index]));
+        }
+
+        int index = 0;
+        for (int val : arr) {
+            System.out.println("第" + index + "次取到" + val);
+            index++;
+        }
+
+        Arrays.asList(arr).forEach(val -> {
+            System.out.println("值是：" + val);
+            if (val % 2 == 0) {
+                System.out.println("  它是一个偶数");
+            } else {
+                System.out.println("  它是一个奇数");
+            }
+        });
+    }
 }
