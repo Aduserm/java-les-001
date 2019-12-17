@@ -3,6 +3,7 @@ package com.zeroten.javales001.array;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class ArrayTest {
 
@@ -36,7 +37,7 @@ public class ArrayTest {
         arr5 = new int[2];
         System.out.println(Arrays.toString(arr5));
 
-        int[] arr6 = new int[] {3, 2, 3};
+        int[] arr6 = new int[]{3, 2, 3};
         System.out.println("arr6 = " + Arrays.toString(arr6));
 
         int[] arr7 = {3, 2, 3};
@@ -65,14 +66,14 @@ public class ArrayTest {
             index++;
         }
 
-        Arrays.asList(arr).forEach(val -> {
-            System.out.println("值是：" + val);
-            if (val % 2 == 0) {
-                System.out.println("  它是一个偶数");
-            } else {
-                System.out.println("  它是一个奇数");
-            }
-        });
+//        Arrays.asList(arr).forEach(val -> {
+//            System.out.println("值是：" + val);
+//            if (val % 2 == 0) {
+//                System.out.println("  它是一个偶数");
+//            } else {
+//                System.out.println("  它是一个奇数");
+//            }
+//        });
     }
 
     @Test
@@ -100,5 +101,125 @@ public class ArrayTest {
         // 拷贝数组 arr2 的后 3 位到 arr1 到后 3 位
         System.arraycopy(arr2, arr2.length - 3, arr1, arr1.length - 3, 3);
         System.out.println("arr1 = " + Arrays.toString(arr1));
+    }
+
+    @Test
+    public void testFill() {
+        // 示例：定义一个大小为 10 的 int 数组，并将数组全部初始化为指定的值 5，打印数组；
+        // 然后将数组后 3 为赋值为 3，再次打印数组。
+        int[] arr = new int[10];
+//        for (int index = 0; index < arr.length; index++) {
+//            arr[index] = 5;
+//        }
+        Arrays.fill(arr, 5);
+        System.out.println(Arrays.toString(arr));
+
+//        for (int index = arr.length - 3; index < arr.length; index++) {
+//            arr[index] = 3;
+//        }
+
+        Arrays.fill(arr, arr.length - 3, arr.length, 3);
+        System.out.println(Arrays.toString(arr));
+
+        Arrays.fill(arr, 3, 3, 3);
+
+    }
+
+    @Test
+    public void testSort() {
+        // 示例：
+        // 1.定义一个大小为 100 的 int 数组，
+        // 2.随机给每一位赋值一个 0 ~ 100 之间的数值，
+        // 3.然后对该数组进行排序
+        // 4.并打印排序结果。
+        int[] arr = new int[100];
+        for (int index = 0; index < arr.length; index++) {
+            arr[index] = new Random().nextInt(100);
+        }
+        System.out.println(Arrays.toString(arr));
+        Arrays.sort(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    @Test
+    public void testDuoWeiShuZu() {
+        // 示例：定义一个二维数组，
+        // 第一维表示用户，
+        // 第二维表示用户的具体信息
+        // （1. 编码, 2. 姓名, 3.性别, 4.年龄）。
+        // 定义赋值并打印。
+        String[][] users = new String[5][];
+        users[0] = new String[4];
+        users[0][0] = "001";
+        users[0][1] = "张三";
+        users[0][2] = "男";
+        users[0][3] = "25";
+
+        users[1] = new String[3];
+        users[1][0] = "002";
+        users[1][1] = "李四";
+        users[1][2] = "女";
+        // users[1][3] = "未知";
+
+//        for (int index = 0; index < users.length; index++) {
+//            System.out.println(Arrays.toString(users[index]));
+//        }
+
+//        for (String[] user : users) {
+//            System.out.println(Arrays.toString(user));
+//        }
+
+        // Arrays.asList(users).forEach(user -> System.out.println(Arrays.toString(user)));
+    }
+
+    public int[] twoSum(int[] nums, int target) {
+        int times = 0;
+        for (int index = 0; index < nums.length - 1; index++) {
+            for (int twoIndex = index + 1; twoIndex < nums.length; twoIndex++) {
+                times++;
+                if (nums[index] + nums[twoIndex] == target) {
+                    System.out.println("循环" + times + "次");
+                    return new int[]{index, twoIndex};
+                }
+            }
+        }
+        System.out.println("循环" + times + "次");
+        return null;
+    }
+
+    public int[] twoSum2(int[] nums, int target) {
+        System.out.println("传入数组：" + Arrays.toString(nums));
+        Arrays.sort(nums);
+        System.out.println("排序数组：" + Arrays.toString(nums));
+
+        int times = 0;
+        for (int index = 0; index < nums.length - 1; index++) {
+            if (nums[index] >= target) {
+                System.out.println("第一个数(" + index + ")" + nums[index] + "已经大于" + target + "，返回不存在");
+                System.out.println("循环" + times + "次");
+                return null;
+            }
+            for (int twoIndex = index + 1; twoIndex < nums.length; twoIndex++) {
+                times++;
+                if (nums[twoIndex] > target) {
+                    break;
+                }
+                if (nums[index] + nums[twoIndex] == target) {
+                    System.out.println("循环" + times + "次");
+                    return new int[]{index, twoIndex};
+                }
+            }
+        }
+        System.out.println("循环" + times + "次");
+        return null;
+    }
+
+    @Test
+    public void testTWoSum() {
+        int[] intArray = {20, 7, 11, 15, 30, 6};
+        int target = 9;
+        System.out.println(Arrays.toString(twoSum(intArray, target)));
+        System.out.println("===================================");
+        System.out.println(Arrays.toString(twoSum2(intArray, target)));
     }
 }
