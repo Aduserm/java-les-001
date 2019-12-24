@@ -17,7 +17,7 @@ public class ClassCreateTest {
 
     public ClassCreateTest() {
         name = "这是一个成员变量";
-        System.out.println("执行构造器");
+        System.out.println("执行代码块2");
     }
 
     public void println() {
@@ -25,7 +25,6 @@ public class ClassCreateTest {
     }
 
     public static void main(String[] args) {
-        new ClassCreateTest().println();
         new ClassCreateTest().println();
     }
 
