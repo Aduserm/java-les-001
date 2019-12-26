@@ -45,16 +45,16 @@ public class OuterClass {
 //            new PrintClass().print();
 
             // 使用匿名内部类来实现打印
-//            class PrintInterfaceImpl implements PrintInterface {
-//                @Override
-//                public void print() {
-//
-//                }
-//            }
-//            new PrintInterfaceImpl().print();
+            class PrintInterfaceImpl implements PrintInterface {
+                @Override
+                public void print() {
+
+                }
+            }
+            new PrintInterfaceImpl().print();
 
             // 使用匿名内部类来实现打印 - 实现接口
-//            new PrintInterface() {
+//            PrintInterface var1 = new PrintInterface() {
 //                @Override
 //                public void print() {
 //                    StringBuilder tmp = new StringBuilder();
@@ -64,7 +64,8 @@ public class OuterClass {
 //                    tmp.append(OuterClass.this.name);
 //                    System.out.println(tmp.toString());
 //                }
-//            }.print();
+//            };
+//            var1.print();
 
             // 使用匿名内部类来实现打印 - 实现抽象类
 //            class PrintAbstractImpl extends PrintAbstract {
@@ -91,17 +92,17 @@ public class OuterClass {
 //            }
 //            new PrintClassNew().print();
 
-            new PrintClass() {
-                @Override
-                public void print() {
-                    StringBuilder tmp = new StringBuilder();
-                    tmp.append("外围类index=");
-                    tmp.append(OuterClass.this.index);
-                    tmp.append(",外围类name=");
-                    tmp.append(OuterClass.this.name);
-                    System.out.println(tmp.toString());
-                }
-            }.print();
+//            new PrintClass("类名") {
+//                @Override
+//                public void print() {
+//                    StringBuilder tmp = new StringBuilder();
+//                    tmp.append("外围类index=");
+//                    tmp.append(OuterClass.this.index);
+//                    tmp.append(",外围类name=");
+//                    tmp.append(super.name);
+//                    System.out.println(tmp.toString());
+//                }
+//            }.print();
         }
     }
 
