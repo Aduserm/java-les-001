@@ -34,14 +34,18 @@ public class UserService {
 
         UserInvocationHandler handler = new UserInvocationHandler(userDao);
 
-        UserDao userDaoProxy = (UserDao) Proxy.newProxyInstance(
+        UserCache userDaoProxy = (UserCache) Proxy.newProxyInstance(
                 userDao.getClass().getClassLoader(),
                 userDao.getClass().getInterfaces(),
                 handler
         );
 
-        userDaoProxy.save(user1);
-        userDaoProxy.delete();
+        User user = userDaoProxy.getCacheByName("缓存2");
+        System.out.println(user.getName() + "," + user.getAge());
+        System.out.println(userDaoProxy.toString());
+
+//        userDaoProxy.save(user1);
+//        userDaoProxy.delete();
     }
 
     public static void jdkProxyCall2() {
@@ -79,12 +83,12 @@ public class UserService {
         // staticProxyCall();
 
         // 2 动态代理
-        // jdkProxyCall();
+        jdkProxyCall();
 
         // 2 动态代理 - 被代理对象不是基于接口来实现的
         // jdkProxyCall2();
 
         // 3 Cglib代理，因为它是通过子类的方式来实现的，因此也可以称为子类代理
-        cglibProxyCall();
+        // cglibProxyCall();
     }
 }

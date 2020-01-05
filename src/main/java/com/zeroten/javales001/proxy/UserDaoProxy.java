@@ -31,4 +31,9 @@ public class UserDaoProxy implements UserDao {
     public boolean delete() {
         return false;
     }
+
+    @Override
+    public User getByName(String name) {
+        return null;
+    }
 }

@@ -14,6 +14,8 @@ public class UserInvocationHandler implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         System.out.println("开始执行");
 
+        System.out.println(method.getDeclaringClass());
+
         if (args != null && args.length == 1) {
             if (args[0] instanceof User) {
                 System.out.println("参数1是User");

@@ -9,4 +9,7 @@ public interface UserDao {
     List query();
 
     boolean delete();
+
+    User getByName(String name);
+
 }
