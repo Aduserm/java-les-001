@@ -83,12 +83,12 @@ public class UserService {
         // staticProxyCall();
 
         // 2 动态代理
-        jdkProxyCall();
+        // jdkProxyCall();
 
         // 2 动态代理 - 被代理对象不是基于接口来实现的
         // jdkProxyCall2();
 
         // 3 Cglib代理，因为它是通过子类的方式来实现的，因此也可以称为子类代理
-        // cglibProxyCall();
+        cglibProxyCall();
     }
 }

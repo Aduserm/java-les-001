@@ -1,7 +1,5 @@
 package com.zeroten.javales001.collection;
 
-import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 
 public class MapSimpleUse {
